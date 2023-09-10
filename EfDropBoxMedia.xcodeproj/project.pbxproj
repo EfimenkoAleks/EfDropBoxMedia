@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56F7AEA0F7DDBF7E4DB8886A /* libPods-EfDropBoxMedia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B862935A0B9F571E8E94160 /* libPods-EfDropBoxMedia.a */; };
+		CEC2C1F02AAD09CD004F744D /* ListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC2C1EF2AAD09CD004F744D /* ListCellViewModel.swift */; };
 		CEEDEE302AA5BB6000122317 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE2F2AA5BB6000122317 /* AppDelegate.swift */; };
 		CEEDEE322AA5BB6000122317 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE312AA5BB6000122317 /* SceneDelegate.swift */; };
 		CEEDEE392AA5BB6100122317 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEEDEE382AA5BB6100122317 /* Assets.xcassets */; };
@@ -20,9 +22,24 @@
 		CEEDEE592AA5CF5B00122317 /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE582AA5CF5B00122317 /* ReusableCell.swift */; };
 		CEEDEE5C2AA5D06100122317 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE5B2AA5D06100122317 /* ListViewModel.swift */; };
 		CEEDEE5E2AA5D09400122317 /* ListInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE5D2AA5D09400122317 /* ListInterfaces.swift */; };
+		CEEDEE622AA6283D00122317 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE612AA6283D00122317 /* DIContainer.swift */; };
+		CEEDEE652AA6298000122317 /* ListNetWorkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE642AA6298000122317 /* ListNetWorkService.swift */; };
+		CEEDEE692AA629E700122317 /* ListNetWorkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE682AA629E700122317 /* ListNetWorkServiceProtocol.swift */; };
+		CEEDEE6C2AA62A4C00122317 /* ListFecher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE6B2AA62A4C00122317 /* ListFecher.swift */; };
+		CEEDEE6E2AA62A6200122317 /* ListFecherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE6D2AA62A6200122317 /* ListFecherProtocol.swift */; };
+		CEEDEE702AA7330F00122317 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE6F2AA7330F00122317 /* String+Extension.swift */; };
+		CEEDEE722AA733F900122317 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE712AA733F900122317 /* URL+Extension.swift */; };
+		CEEDEE792AA7667100122317 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE772AA7667100122317 /* LoginViewController.swift */; };
+		CEEDEE7A2AA7667100122317 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEEDEE782AA7667100122317 /* LoginViewController.xib */; };
+		CEEDEE7C2AA773F900122317 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE7B2AA773F900122317 /* ListModel.swift */; };
+		CEEDEE7F2AA77DB200122317 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE7E2AA77DB200122317 /* Preferences.swift */; };
+		CEEDEE812AA77DD500122317 /* PreferencesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE802AA77DD500122317 /* PreferencesProtocol.swift */; };
+		CEEDEE832AA77EFB00122317 /* ConstantUserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE822AA77EFB00122317 /* ConstantUserDefaultsKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B862935A0B9F571E8E94160 /* libPods-EfDropBoxMedia.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EfDropBoxMedia.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEC2C1EF2AAD09CD004F744D /* ListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCellViewModel.swift; sourceTree = "<group>"; };
 		CEEDEE2C2AA5BB5F00122317 /* EfDropBoxMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EfDropBoxMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEDEE2F2AA5BB6000122317 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEEDEE312AA5BB6000122317 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +55,21 @@
 		CEEDEE582AA5CF5B00122317 /* ReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCell.swift; sourceTree = "<group>"; };
 		CEEDEE5B2AA5D06100122317 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		CEEDEE5D2AA5D09400122317 /* ListInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInterfaces.swift; sourceTree = "<group>"; };
+		CEEDEE612AA6283D00122317 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		CEEDEE642AA6298000122317 /* ListNetWorkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNetWorkService.swift; sourceTree = "<group>"; };
+		CEEDEE682AA629E700122317 /* ListNetWorkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNetWorkServiceProtocol.swift; sourceTree = "<group>"; };
+		CEEDEE6B2AA62A4C00122317 /* ListFecher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFecher.swift; sourceTree = "<group>"; };
+		CEEDEE6D2AA62A6200122317 /* ListFecherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFecherProtocol.swift; sourceTree = "<group>"; };
+		CEEDEE6F2AA7330F00122317 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		CEEDEE712AA733F900122317 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
+		CEEDEE772AA7667100122317 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CEEDEE782AA7667100122317 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		CEEDEE7B2AA773F900122317 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
+		CEEDEE7E2AA77DB200122317 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		CEEDEE802AA77DD500122317 /* PreferencesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesProtocol.swift; sourceTree = "<group>"; };
+		CEEDEE822AA77EFB00122317 /* ConstantUserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantUserDefaultsKeys.swift; sourceTree = "<group>"; };
+		E388840DA39DC8B804DF8A82 /* Pods-EfDropBoxMedia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EfDropBoxMedia.debug.xcconfig"; path = "Target Support Files/Pods-EfDropBoxMedia/Pods-EfDropBoxMedia.debug.xcconfig"; sourceTree = "<group>"; };
+		ED484D508F571DFA1B6ED12B /* Pods-EfDropBoxMedia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EfDropBoxMedia.release.xcconfig"; path = "Target Support Files/Pods-EfDropBoxMedia/Pods-EfDropBoxMedia.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,17 +77,45 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56F7AEA0F7DDBF7E4DB8886A /* libPods-EfDropBoxMedia.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		64707296ED989DB5F3F0D5AE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B862935A0B9F571E8E94160 /* libPods-EfDropBoxMedia.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CEC2C1ED2AAD0976004F744D /* CellView */ = {
+			isa = PBXGroup;
+			children = (
+				CEEDEE502AA5CCD700122317 /* ListCell.swift */,
+				CEEDEE512AA5CCD700122317 /* ListCell.xib */,
+			);
+			path = CellView;
+			sourceTree = "<group>";
+		};
+		CEC2C1EE2AAD0990004F744D /* CellViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CEC2C1EF2AAD09CD004F744D /* ListCellViewModel.swift */,
+			);
+			path = CellViewModel;
+			sourceTree = "<group>";
+		};
 		CEEDEE232AA5BB5F00122317 = {
 			isa = PBXGroup;
 			children = (
 				CEEDEE2E2AA5BB5F00122317 /* EfDropBoxMedia */,
 				CEEDEE2D2AA5BB5F00122317 /* Products */,
+				EB8C3E22A5954D29A9386EBD /* Pods */,
+				64707296ED989DB5F3F0D5AE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +130,7 @@
 		CEEDEE2E2AA5BB5F00122317 /* EfDropBoxMedia */ = {
 			isa = PBXGroup;
 			children = (
+				CEEDEE602AA6280E00122317 /* Services */,
 				CEEDEE572AA5CEE200122317 /* Extensions */,
 				CEEDEE432AA5C87900122317 /* ListModule */,
 				CEEDEE2F2AA5BB6000122317 /* AppDelegate.swift */,
@@ -78,6 +139,8 @@
 				CEEDEE3A2AA5BB6100122317 /* LaunchScreen.storyboard */,
 				CEEDEE3D2AA5BB6100122317 /* Info.plist */,
 				CEEDEE562AA5CEA200122317 /* Constants */,
+				CEEDEE772AA7667100122317 /* LoginViewController.swift */,
+				CEEDEE782AA7667100122317 /* LoginViewController.xib */,
 			);
 			path = EfDropBoxMedia;
 			sourceTree = "<group>";
@@ -107,8 +170,8 @@
 		CEEDEE4F2AA5CC5700122317 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				CEEDEE502AA5CCD700122317 /* ListCell.swift */,
-				CEEDEE512AA5CCD700122317 /* ListCell.xib */,
+				CEC2C1EE2AAD0990004F744D /* CellViewModel */,
+				CEC2C1ED2AAD0976004F744D /* CellView */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -116,7 +179,9 @@
 		CEEDEE562AA5CEA200122317 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				CEEDEE7D2AA77D9700122317 /* Preferences */,
 				CEEDEE542AA5CE6F00122317 /* ConstantId.swift */,
+				CEEDEE822AA77EFB00122317 /* ConstantUserDefaultsKeys.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -125,6 +190,8 @@
 			isa = PBXGroup;
 			children = (
 				CEEDEE582AA5CF5B00122317 /* ReusableCell.swift */,
+				CEEDEE6F2AA7330F00122317 /* String+Extension.swift */,
+				CEEDEE712AA733F900122317 /* URL+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -140,8 +207,55 @@
 		CEEDEE5F2AA5D0F700122317 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CEEDEE7B2AA773F900122317 /* ListModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CEEDEE602AA6280E00122317 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CEEDEE6A2AA62A0D00122317 /* ListFecher */,
+				CEEDEE632AA628FF00122317 /* ListNetWorkService */,
+				CEEDEE612AA6283D00122317 /* DIContainer.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CEEDEE632AA628FF00122317 /* ListNetWorkService */ = {
+			isa = PBXGroup;
+			children = (
+				CEEDEE642AA6298000122317 /* ListNetWorkService.swift */,
+				CEEDEE682AA629E700122317 /* ListNetWorkServiceProtocol.swift */,
+			);
+			path = ListNetWorkService;
+			sourceTree = "<group>";
+		};
+		CEEDEE6A2AA62A0D00122317 /* ListFecher */ = {
+			isa = PBXGroup;
+			children = (
+				CEEDEE6B2AA62A4C00122317 /* ListFecher.swift */,
+				CEEDEE6D2AA62A6200122317 /* ListFecherProtocol.swift */,
+			);
+			path = ListFecher;
+			sourceTree = "<group>";
+		};
+		CEEDEE7D2AA77D9700122317 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				CEEDEE7E2AA77DB200122317 /* Preferences.swift */,
+				CEEDEE802AA77DD500122317 /* PreferencesProtocol.swift */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
+		EB8C3E22A5954D29A9386EBD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E388840DA39DC8B804DF8A82 /* Pods-EfDropBoxMedia.debug.xcconfig */,
+				ED484D508F571DFA1B6ED12B /* Pods-EfDropBoxMedia.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +265,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEEDEE402AA5BB6100122317 /* Build configuration list for PBXNativeTarget "EfDropBoxMedia" */;
 			buildPhases = (
+				AB38634F81B523DDEB4CCBF5 /* [CP] Check Pods Manifest.lock */,
 				CEEDEE282AA5BB5F00122317 /* Sources */,
 				CEEDEE292AA5BB5F00122317 /* Frameworks */,
 				CEEDEE2A2AA5BB5F00122317 /* Resources */,
@@ -202,6 +317,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEEDEE7A2AA7667100122317 /* LoginViewController.xib in Resources */,
 				CEEDEE3C2AA5BB6100122317 /* LaunchScreen.storyboard in Resources */,
 				CEEDEE532AA5CCD700122317 /* ListCell.xib in Resources */,
 				CEEDEE392AA5BB6100122317 /* Assets.xcassets in Resources */,
@@ -211,19 +327,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AB38634F81B523DDEB4CCBF5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EfDropBoxMedia-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CEEDEE282AA5BB5F00122317 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEEDEE652AA6298000122317 /* ListNetWorkService.swift in Sources */,
 				CEEDEE552AA5CE6F00122317 /* ConstantId.swift in Sources */,
 				CEEDEE302AA5BB6000122317 /* AppDelegate.swift in Sources */,
+				CEEDEE622AA6283D00122317 /* DIContainer.swift in Sources */,
+				CEEDEE6E2AA62A6200122317 /* ListFecherProtocol.swift in Sources */,
+				CEEDEE692AA629E700122317 /* ListNetWorkServiceProtocol.swift in Sources */,
 				CEEDEE322AA5BB6000122317 /* SceneDelegate.swift in Sources */,
+				CEEDEE832AA77EFB00122317 /* ConstantUserDefaultsKeys.swift in Sources */,
 				CEEDEE5E2AA5D09400122317 /* ListInterfaces.swift in Sources */,
 				CEEDEE4B2AA5CAB200122317 /* ListViewController.swift in Sources */,
+				CEEDEE7C2AA773F900122317 /* ListModel.swift in Sources */,
+				CEEDEE7F2AA77DB200122317 /* Preferences.swift in Sources */,
+				CEEDEE722AA733F900122317 /* URL+Extension.swift in Sources */,
+				CEEDEE812AA77DD500122317 /* PreferencesProtocol.swift in Sources */,
+				CEC2C1F02AAD09CD004F744D /* ListCellViewModel.swift in Sources */,
 				CEEDEE522AA5CCD700122317 /* ListCell.swift in Sources */,
 				CEEDEE592AA5CF5B00122317 /* ReusableCell.swift in Sources */,
 				CEEDEE5C2AA5D06100122317 /* ListViewModel.swift in Sources */,
+				CEEDEE792AA7667100122317 /* LoginViewController.swift in Sources */,
+				CEEDEE6C2AA62A4C00122317 /* ListFecher.swift in Sources */,
+				CEEDEE702AA7330F00122317 /* String+Extension.swift in Sources */,
 				CEEDEE4E2AA5CB6B00122317 /* ListTableViewManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,6 +512,7 @@
 		};
 		CEEDEE412AA5BB6100122317 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E388840DA39DC8B804DF8A82 /* Pods-EfDropBoxMedia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -386,6 +541,7 @@
 		};
 		CEEDEE422AA5BB6100122317 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED484D508F571DFA1B6ED12B /* Pods-EfDropBoxMedia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

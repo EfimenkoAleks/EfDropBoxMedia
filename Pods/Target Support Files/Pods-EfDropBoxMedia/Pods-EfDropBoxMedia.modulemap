@@ -1,0 +1,6 @@
+module Pods_EfDropBoxMedia {
+  umbrella header "Pods-EfDropBoxMedia-umbrella.h"
+
+  export *
+  module * { export * }
+}

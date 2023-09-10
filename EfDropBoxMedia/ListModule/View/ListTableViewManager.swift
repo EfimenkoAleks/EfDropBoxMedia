@@ -33,6 +33,10 @@ class ListTableViewManager: NSObject {
     
     func reloadTable(data: [String]) {
         self.data = data
+        reload()
+    }
+    
+    func reload() {
         tableView.reloadData()
     }
 }
@@ -56,7 +60,7 @@ extension ListTableViewManager: UITableViewDataSource {
         
         let model = data[indexPath.row]
         
-        cell.configure(model: model)
+        cell.configure(path: model)
         return cell
     }
 }
