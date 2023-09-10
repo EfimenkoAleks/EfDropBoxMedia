@@ -9,7 +9,8 @@ import Foundation
 
 class ListViewModel {
     
-    var fetchList: (([String]) -> Void)?
+    var fetchList: (([List]) -> Void)?
+    private var dataSource: [List] = []
     private var _fetcher: ListFecherProtocol
     
     init(fetcher: ListFecherProtocol = DIContainer.default.listService) {
@@ -18,9 +19,10 @@ class ListViewModel {
         fechData()
     }
     
-    private func fechData() {
+    func fechData() {
         _fetcher.getList { [unowned self] rezult in
-            self.fetchList?(rezult)
+            dataSource.append(contentsOf: rezult)
+            fetchList?(dataSource)
         }
     }
 }

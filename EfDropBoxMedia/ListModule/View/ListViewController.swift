@@ -20,15 +20,14 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configUI()
         bindUI()
-        view.backgroundColor = .systemPink
-        tableView.backgroundColor = .systemMint
     }
+}
+
+private extension ListViewController {
     
     func bindUI() {
-        title = "List"
-        navigationController?.navigationBar.prefersLargeTitles = true
-    
         viewModel.fetchList = { [unowned self] newList in
             DispatchQueue.main.async {
                 self.setupTable(newList)
@@ -36,7 +35,13 @@ class ListViewController: UIViewController {
         }
     }
     
-    func setupTable(_ data: [String]) {
+    func configUI() {
+        title = "List of files"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        view.backgroundColor = .systemMint
+    }
+    
+    func setupTable(_ data: [List]) {
         self.tableViewManager = ListTableViewManager(tableView, data: data)
         self.tableViewManager?.eventHandler = { [unowned self] event in
             switch event {
@@ -45,6 +50,6 @@ class ListViewController: UIViewController {
             default:
                 break
             }
-            }
+        }
     }
 }

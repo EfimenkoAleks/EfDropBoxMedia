@@ -21,13 +21,13 @@ class ListFecher: ListFecherProtocol {
     private let preferences: PreferencesProtocol = Preferences()
     private var cursor: String?
     
-    func getList(completion: @escaping ([String]) -> Void) {
+    func getList(completion: @escaping ([List]) -> Void) {
         if let cursor = cursor {
             networkService.getListContinue(cursor: cursor) { [weak self] result in
                 switch result {
                 case .success(let object):
                     self?.cursor = object.cursor
-                    completion(object.pathLowers)
+                    completion(object.listModels)
                 case .failure(_):
                     completion([])
                 }
@@ -37,7 +37,7 @@ class ListFecher: ListFecherProtocol {
                 switch result {
                 case .success(let object):
                     self?.cursor = object.cursor
-                    completion(object.pathLowers)
+                    completion(object.listModels)
                 case .failure(_):
                     completion([])
                 }

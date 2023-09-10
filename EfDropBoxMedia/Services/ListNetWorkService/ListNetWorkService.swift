@@ -24,10 +24,14 @@ class ListNetWorkService: ListNetWorkServiceProtocol {
     }
     
     func getList(path: String, completion: @escaping (Result<ListObject, Error>) -> Void) {
+        
         client?.files.listFolder(path: path).response { response, error in
             if let result = response {
-                let arrayPathLower = result.entries.compactMap({$0.pathLower})
-                let object = ListObject(cursor: result.cursor, pathLowers: arrayPathLower)
+               
+                let arrayPathLower: [List] = result.entries.compactMap { object -> List in
+                    List(pathLower: object.pathLower, name: object.name)
+                }
+                let object = ListObject(cursor: result.cursor, listModels: arrayPathLower)
                 completion(.success(object))
             } else if let error = error {
                 completion(.failure(error as! Error))
@@ -38,8 +42,10 @@ class ListNetWorkService: ListNetWorkServiceProtocol {
     func getListContinue(cursor: String, completion: @escaping (Result<ListObject, Error>) -> Void) {
         client?.files.listFolderContinue(cursor: cursor).response { response, error in
             if let result = response {
-                let arrayPathLower = result.entries.compactMap({$0.pathLower})
-                let object = ListObject(cursor: result.cursor, pathLowers: arrayPathLower)
+                let arrayPathLower: [List] = result.entries.compactMap { object -> List in
+                    List(pathLower: object.pathLower, name: object.name)
+                }
+                let object = ListObject(cursor: result.cursor, listModels: arrayPathLower)
                 completion(.success(object))
             } else if let error = error {
                 completion(.failure(error as! Error))
@@ -48,9 +54,10 @@ class ListNetWorkService: ListNetWorkServiceProtocol {
     }
     
     func downLoadPhoto(path: String, completion: @escaping (DownLoad) -> Void) {
-        
-        guard self.getImage(name: path) == nil else {
-            completion(.loaded(path))
+        let editedPath = path.replacingOccurrences(of: "/", with: "")
+        let savedPath = "big" + editedPath
+        guard self.getImage(name: savedPath) == nil else {
+            completion(.loaded(savedPath))
             return
         }
         client?.files.download(path: path)
@@ -59,12 +66,12 @@ class ListNetWorkService: ListNetWorkServiceProtocol {
                 
                     let image = UIImage(data: response.1)
                     let documentsDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
-                    let fileURL = documentsDirectory.appendingPathComponent(path)
+                    let fileURL = documentsDirectory.appendingPathComponent(savedPath)
                     if let data = image?.pngData(),
                        !FileManager.default.fileExists(atPath: fileURL.path) {
                         do {
                             try data.write(to: fileURL)
-                            completion(.loaded(path))
+                            completion(.loaded(savedPath))
                         } catch {
                             completion(.error)
                         }
@@ -78,23 +85,20 @@ class ListNetWorkService: ListNetWorkServiceProtocol {
     }
     
     func downLoadPreviewPhoto(path: String, completion: @escaping (DownLoad) -> Void) {
-        
-        let editedPath = path.replacingOccurrences(of: "/", with: "")
-        let savedPath = "small" + editedPath
-        guard self.getImage(name: savedPath) == nil else {
-            completion(.loaded(savedPath))
+        guard self.getImage(name: path) == nil else {
+            completion(.loaded(path))
             return
         }
         client?.files.getThumbnail(path: path, size: .w256h256).response { response, error in
             if let response = response, response.0.pathLower != nil {
                 let image = UIImage(data: response.1)
                 let documentsDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
-                let fileURL = documentsDirectory.appendingPathComponent(savedPath)
+                let fileURL = documentsDirectory.appendingPathComponent(path)
                 if let data = image?.pngData(),
                    !FileManager.default.fileExists(atPath: fileURL.path) {
                     do {
                         try data.write(to: fileURL)
-                        completion(.loaded(savedPath))
+                        completion(.loaded(path))
                     } catch {
                         completion(.error)
                     }

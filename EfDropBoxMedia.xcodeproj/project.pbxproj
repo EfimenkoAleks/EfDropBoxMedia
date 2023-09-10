@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		56F7AEA0F7DDBF7E4DB8886A /* libPods-EfDropBoxMedia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B862935A0B9F571E8E94160 /* libPods-EfDropBoxMedia.a */; };
 		CEC2C1F02AAD09CD004F744D /* ListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC2C1EF2AAD09CD004F744D /* ListCellViewModel.swift */; };
+		CED092E52AAE0E4100A1F63E /* ListHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED092E42AAE0E4100A1F63E /* ListHelper.swift */; };
 		CEEDEE302AA5BB6000122317 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE2F2AA5BB6000122317 /* AppDelegate.swift */; };
 		CEEDEE322AA5BB6000122317 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE312AA5BB6000122317 /* SceneDelegate.swift */; };
 		CEEDEE392AA5BB6100122317 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEEDEE382AA5BB6100122317 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		5B862935A0B9F571E8E94160 /* libPods-EfDropBoxMedia.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EfDropBoxMedia.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC2C1EF2AAD09CD004F744D /* ListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCellViewModel.swift; sourceTree = "<group>"; };
+		CED092E42AAE0E4100A1F63E /* ListHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHelper.swift; sourceTree = "<group>"; };
 		CEEDEE2C2AA5BB5F00122317 /* EfDropBoxMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EfDropBoxMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEDEE2F2AA5BB6000122317 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEEDEE312AA5BB6000122317 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,13 @@
 			path = CellViewModel;
 			sourceTree = "<group>";
 		};
+		CED092E62AAE33F900A1F63E /* CastomElement */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CastomElement;
+			sourceTree = "<group>";
+		};
 		CEEDEE232AA5BB5F00122317 = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +139,7 @@
 		CEEDEE2E2AA5BB5F00122317 /* EfDropBoxMedia */ = {
 			isa = PBXGroup;
 			children = (
+				CED092E62AAE33F900A1F63E /* CastomElement */,
 				CEEDEE602AA6280E00122317 /* Services */,
 				CEEDEE572AA5CEE200122317 /* Extensions */,
 				CEEDEE432AA5C87900122317 /* ListModule */,
@@ -152,6 +162,7 @@
 				CEEDEE5A2AA5D03D00122317 /* ViewModel */,
 				CEEDEE442AA5C8B500122317 /* View */,
 				CEEDEE5D2AA5D09400122317 /* ListInterfaces.swift */,
+				CED092E42AAE0E4100A1F63E /* ListHelper.swift */,
 			);
 			path = ListModule;
 			sourceTree = "<group>";
@@ -367,6 +378,7 @@
 				CEEDEE832AA77EFB00122317 /* ConstantUserDefaultsKeys.swift in Sources */,
 				CEEDEE5E2AA5D09400122317 /* ListInterfaces.swift in Sources */,
 				CEEDEE4B2AA5CAB200122317 /* ListViewController.swift in Sources */,
+				CED092E52AAE0E4100A1F63E /* ListHelper.swift in Sources */,
 				CEEDEE7C2AA773F900122317 /* ListModel.swift in Sources */,
 				CEEDEE7F2AA77DB200122317 /* Preferences.swift in Sources */,
 				CEEDEE722AA733F900122317 /* URL+Extension.swift in Sources */,

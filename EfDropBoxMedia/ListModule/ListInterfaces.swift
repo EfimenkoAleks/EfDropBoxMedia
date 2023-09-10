@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ListViewModelProtocol {
-    var fetchList: (([String]) -> Void)? {get set}
+    var fetchList: (([List]) -> Void)? {get set}
 }

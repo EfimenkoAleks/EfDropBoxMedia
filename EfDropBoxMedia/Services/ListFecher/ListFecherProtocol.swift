@@ -8,6 +8,6 @@
 import Foundation
 
 protocol ListFecherProtocol {
-    func getList(completion: @escaping ([String]) -> Void)
+    func getList(completion: @escaping ([List]) -> Void)
     func downLoad(path: String, isPreview: Bool, completion: @escaping (DownLoad) -> Void)
 }

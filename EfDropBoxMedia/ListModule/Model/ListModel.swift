@@ -9,5 +9,10 @@ import Foundation
 
 struct ListObject {
     var cursor: String?
-    var pathLowers: [String]
+    var listModels: [List]
+}
+
+struct List {
+    var pathLower: String?
+    var name: String?
 }

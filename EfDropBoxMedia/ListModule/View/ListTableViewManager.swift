@@ -8,7 +8,7 @@
 import UIKit
 
 enum ListEvent {
-    case selected(String)
+    case selected(String?)
 }
 
 class ListTableViewManager: NSObject {
@@ -16,10 +16,10 @@ class ListTableViewManager: NSObject {
     private var isLoadingList: Bool = false
     
     var tableView: UITableView
-    var data: [String]
+    var data: [List]
     var eventHandler: ((ListEvent) -> Void)?
     
-    init(_ tableView: UITableView, data: [String]) {
+    init(_ tableView: UITableView, data: [List]) {
         self.tableView = tableView
         self.data = data
         super.init()
@@ -31,7 +31,7 @@ class ListTableViewManager: NSObject {
         tableView.reloadData()
     }
     
-    func reloadTable(data: [String]) {
+    func reloadTable(data: [List]) {
         self.data = data
         reload()
     }
@@ -58,15 +58,15 @@ extension ListTableViewManager: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ConstantId.listCell, for: indexPath)
                 as? ListCell else { return UITableViewCell() }
         
-        let model = data[indexPath.row]
+        let list = data[indexPath.row]
         
-        cell.configure(path: model)
+        cell.configure(model: list)
         return cell
     }
 }
 
 extension ListTableViewManager: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        eventHandler?(.selected(data[indexPath.row]))
+        eventHandler?(.selected(data[indexPath.row].pathLower))
     }
 }
