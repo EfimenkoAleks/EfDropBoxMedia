@@ -46,9 +46,8 @@ private extension ListViewController {
         self.tableViewManager?.eventHandler = { [unowned self] event in
             switch event {
             case .selected(let model):
-                break
-            default:
-                break
+                let vc = PhotoViewController(with: model)
+                self.navigationController?.pushViewController(vc, animated: true)
             }
         }
     }

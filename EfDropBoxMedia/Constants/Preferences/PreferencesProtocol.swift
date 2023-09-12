@@ -13,4 +13,6 @@ protocol PreferencesProtocol {
     func getAccessToken() -> String?
     func saveRefreshToken(_ refreshToken: String)
     func getRefreshToken() -> String?
+    func savePhotoModel(_ dict: [[String : Any]])
+    func getPhotoModel() -> [[String : Any]]?
 }

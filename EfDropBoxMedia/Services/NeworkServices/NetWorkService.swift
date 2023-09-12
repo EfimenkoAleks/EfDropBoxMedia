@@ -8,9 +8,18 @@
 import Foundation
 import SwiftyDropbox
 
+enum DownLoad {
+    case startDownloading
+    case loaded(String)
+    case loadedPhoto(PhotoModel)
+    case notSupported
+    case error
+}
+
 class NetWorkService: NetWorkServiceProtocol {
     
     private let fileManager = FileManager.default
+    private let preferences: PreferencesProtocol = Preferences()
     private var client: DropboxClient? {
         get {
             return DropboxClientsManager.authorizedClient
@@ -87,13 +96,34 @@ class NetWorkService: NetWorkServiceProtocol {
     func downLoadPhoto(path: String, pathForSaveBig: String, completion: @escaping (DownLoad) -> Void) {
         
         guard self.getImage(path: pathForSaveBig) == nil else {
-            completion(.loaded(pathForSaveBig))
-            return
+            if let savedArreyModels = preferences.getPhotoModel() {
+                savedArreyModels.forEach { dict in
+                    if dict["pathLower"] as? String == pathForSaveBig {
+                        completion(.loadedPhoto(createPhotoModelFromDict(dict)))
+                    }
+                }
+                completion(.error)
+                return
+            } else {
+                completion(.error)
+                return
+            }
         }
         client?.files.download(path: path)
             .response { [unowned self] response, error in
                 if let response = response, response.0.pathLower != nil {
-                    completion(saveData(response.1, path: pathForSaveBig))
+                    switch saveData(response.1, path: pathForSaveBig) {
+                    case .loaded(let str):
+                        
+                        let model = PhotoModel(modified: response.0.clientModified,
+                                               name: response.0.name,
+                                               size: Int64(response.0.size),
+                                               pathLower: str)
+                        savePhotoModel(model)
+                        completion(.loadedPhoto(model))
+                    default:
+                        completion(.error)
+                    }
                 } else if error != nil {
                     completion(.error)
                 }
@@ -116,6 +146,26 @@ class NetWorkService: NetWorkServiceProtocol {
                     return
                 }
             }
+    }
+    
+    private func savePhotoModel(_ model: PhotoModel) {
+        var savedArreyModels: [[String: Any]] = preferences.getPhotoModel() ?? []
+        let dict: [String: Any] = ["name": model.name,
+                                  "modified": model.modified,
+                                  "size": model.size,
+                                   "pathLower": model.pathLower ?? ""
+        ]
+        savedArreyModels.append(dict)
+        preferences.savePhotoModel(savedArreyModels)
+    }
+    
+    private func createPhotoModelFromDict(_ dict: [String: Any]) -> PhotoModel {
+        let model = PhotoModel(modified: dict["modified"] as! Date,
+                               name: dict["name"] as! String,
+                               size: dict["size"] as! Int64,
+                               pathLower: dict["pathLower"] as? String)
+        
+        return model
     }
     
     private func getFileUrlFromPath(_ path: String) -> URL? {

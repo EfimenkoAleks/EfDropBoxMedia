@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		56F7AEA0F7DDBF7E4DB8886A /* libPods-EfDropBoxMedia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B862935A0B9F571E8E94160 /* libPods-EfDropBoxMedia.a */; };
+		CEAC4EBC2AB05FD300E9723D /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC4EBA2AB05FD300E9723D /* PhotoViewController.swift */; };
+		CEAC4EBD2AB05FD300E9723D /* PhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAC4EBB2AB05FD300E9723D /* PhotoViewController.xib */; };
+		CEAC4EBF2AB0709900E9723D /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC4EBE2AB0709900E9723D /* PhotoViewModel.swift */; };
+		CEAC4EC12AB0712300E9723D /* PhotoInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC4EC02AB0712300E9723D /* PhotoInterfaces.swift */; };
+		CEAC4EC32AB0757700E9723D /* PhotoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC4EC22AB0757700E9723D /* PhotoHelper.swift */; };
+		CEAC4EC62AB08FE200E9723D /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC4EC52AB08FE200E9723D /* PhotoModel.swift */; };
+		CEAC4EC82AB0B07600E9723D /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC4EC72AB0B07600E9723D /* DateExtension.swift */; };
 		CEC2C1F02AAD09CD004F744D /* ListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC2C1EF2AAD09CD004F744D /* ListCellViewModel.swift */; };
 		CED092E52AAE0E4100A1F63E /* ListHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED092E42AAE0E4100A1F63E /* ListHelper.swift */; };
 		CED092EA2AAE416A00A1F63E /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED092E92AAE416A00A1F63E /* VideoPlayer.swift */; };
@@ -45,6 +52,13 @@
 
 /* Begin PBXFileReference section */
 		5B862935A0B9F571E8E94160 /* libPods-EfDropBoxMedia.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EfDropBoxMedia.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEAC4EBA2AB05FD300E9723D /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		CEAC4EBB2AB05FD300E9723D /* PhotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoViewController.xib; sourceTree = "<group>"; };
+		CEAC4EBE2AB0709900E9723D /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
+		CEAC4EC02AB0712300E9723D /* PhotoInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInterfaces.swift; sourceTree = "<group>"; };
+		CEAC4EC22AB0757700E9723D /* PhotoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoHelper.swift; sourceTree = "<group>"; };
+		CEAC4EC52AB08FE200E9723D /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
+		CEAC4EC72AB0B07600E9723D /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		CEC2C1EF2AAD09CD004F744D /* ListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCellViewModel.swift; sourceTree = "<group>"; };
 		CED092E42AAE0E4100A1F63E /* ListHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHelper.swift; sourceTree = "<group>"; };
 		CED092E92AAE416A00A1F63E /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
@@ -102,6 +116,52 @@
 				5B862935A0B9F571E8E94160 /* libPods-EfDropBoxMedia.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CEAC4EAB2AB05E8300E9723D /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				CEAC4EB72AB05F9800E9723D /* PhotoModule */,
+				CEEDEE432AA5C87900122317 /* ListModule */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		CEAC4EB72AB05F9800E9723D /* PhotoModule */ = {
+			isa = PBXGroup;
+			children = (
+				CEAC4EC42AB08FCB00E9723D /* Model */,
+				CEAC4EB92AB05FB000E9723D /* ViewModel */,
+				CEAC4EB82AB05FA900E9723D /* View */,
+				CEAC4EC02AB0712300E9723D /* PhotoInterfaces.swift */,
+				CEAC4EC22AB0757700E9723D /* PhotoHelper.swift */,
+			);
+			path = PhotoModule;
+			sourceTree = "<group>";
+		};
+		CEAC4EB82AB05FA900E9723D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CEAC4EBA2AB05FD300E9723D /* PhotoViewController.swift */,
+				CEAC4EBB2AB05FD300E9723D /* PhotoViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CEAC4EB92AB05FB000E9723D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CEAC4EBE2AB0709900E9723D /* PhotoViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CEAC4EC42AB08FCB00E9723D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CEAC4EC52AB08FE200E9723D /* PhotoModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		CEC2C1ED2AAD0976004F744D /* CellView */ = {
@@ -179,10 +239,10 @@
 		CEEDEE2E2AA5BB5F00122317 /* EfDropBoxMedia */ = {
 			isa = PBXGroup;
 			children = (
+				CEAC4EAB2AB05E8300E9723D /* Modules */,
 				CED092E62AAE33F900A1F63E /* CastomElement */,
 				CEEDEE602AA6280E00122317 /* Services */,
 				CEEDEE572AA5CEE200122317 /* Extensions */,
-				CEEDEE432AA5C87900122317 /* ListModule */,
 				CEEDEE2F2AA5BB6000122317 /* AppDelegate.swift */,
 				CEEDEE312AA5BB6000122317 /* SceneDelegate.swift */,
 				CEEDEE382AA5BB6100122317 /* Assets.xcassets */,
@@ -243,6 +303,7 @@
 				CEEDEE582AA5CF5B00122317 /* ReusableCell.swift */,
 				CEEDEE6F2AA7330F00122317 /* String+Extension.swift */,
 				CEEDEE712AA733F900122317 /* URL+Extension.swift */,
+				CEAC4EC72AB0B07600E9723D /* DateExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -361,6 +422,7 @@
 			files = (
 				CEEDEE7A2AA7667100122317 /* LoginViewController.xib in Resources */,
 				CEEDEE3C2AA5BB6100122317 /* LaunchScreen.storyboard in Resources */,
+				CEAC4EBD2AB05FD300E9723D /* PhotoViewController.xib in Resources */,
 				CEE8DEBE2AAF1859004E0B32 /* VideoCell.xib in Resources */,
 				CEEDEE392AA5BB6100122317 /* Assets.xcassets in Resources */,
 				CEEDEE4C2AA5CAB200122317 /* ListViewController.xib in Resources */,
@@ -401,15 +463,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEEDEE652AA6298000122317 /* NetWorkService.swift in Sources */,
+				CEAC4EC32AB0757700E9723D /* PhotoHelper.swift in Sources */,
 				CEE8DEBD2AAF1859004E0B32 /* VideoCell.swift in Sources */,
 				CEEDEE552AA5CE6F00122317 /* ConstantId.swift in Sources */,
 				CEEDEE302AA5BB6000122317 /* AppDelegate.swift in Sources */,
+				CEAC4EC12AB0712300E9723D /* PhotoInterfaces.swift in Sources */,
+				CEAC4EC62AB08FE200E9723D /* PhotoModel.swift in Sources */,
 				CEEDEE622AA6283D00122317 /* DIContainer.swift in Sources */,
 				CEEDEE6E2AA62A6200122317 /* ListFecherProtocol.swift in Sources */,
 				CEEDEE692AA629E700122317 /* NetWorkServiceProtocol.swift in Sources */,
 				CEEDEE322AA5BB6000122317 /* SceneDelegate.swift in Sources */,
 				CED092F12AAE643100A1F63E /* DetailFetcher.swift in Sources */,
 				CEEDEE832AA77EFB00122317 /* ConstantUserDefaultsKeys.swift in Sources */,
+				CEAC4EBF2AB0709900E9723D /* PhotoViewModel.swift in Sources */,
 				CED092EA2AAE416A00A1F63E /* VideoPlayer.swift in Sources */,
 				CEEDEE5E2AA5D09400122317 /* ListInterfaces.swift in Sources */,
 				CEEDEE4B2AA5CAB200122317 /* ListViewController.swift in Sources */,
@@ -424,7 +490,9 @@
 				CEEDEE5C2AA5D06100122317 /* ListViewModel.swift in Sources */,
 				CEEDEE792AA7667100122317 /* LoginViewController.swift in Sources */,
 				CEEDEE6C2AA62A4C00122317 /* ListFecher.swift in Sources */,
+				CEAC4EC82AB0B07600E9723D /* DateExtension.swift in Sources */,
 				CEEDEE702AA7330F00122317 /* String+Extension.swift in Sources */,
+				CEAC4EBC2AB05FD300E9723D /* PhotoViewController.swift in Sources */,
 				CEE8DEC12AAF186E004E0B32 /* PhotoCell.swift in Sources */,
 				CEEDEE4E2AA5CB6B00122317 /* ListTableViewManager.swift in Sources */,
 			);

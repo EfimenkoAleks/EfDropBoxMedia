@@ -8,5 +8,6 @@
 import Foundation
 
 protocol DetailFetcherProtocol {
-    func getPath(path: String, completion: @escaping (String) -> Void)
+    func downLoadVideo(path: String, completion: @escaping (DownLoad) -> Void)
+    func downLoadPhoto(path: String, completion: @escaping (DownLoad) -> Void) 
 }

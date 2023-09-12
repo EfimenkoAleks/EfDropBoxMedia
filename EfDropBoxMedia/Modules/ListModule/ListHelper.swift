@@ -25,8 +25,7 @@ class ListHelper {
     
     func getImage(name: String) -> UIImage? {
         let documentsDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
-        let fileName = name
-        let fileURL = documentsDirectory.appendingPathComponent(fileName)
+        let fileURL = documentsDirectory.appendingPathComponent(name)
         let image = UIImage(contentsOfFile: fileURL.path)
         return image
     }

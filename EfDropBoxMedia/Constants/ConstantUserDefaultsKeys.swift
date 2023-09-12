@@ -10,4 +10,5 @@ import Foundation
 class ConstantUserDefaultsKeys: NSObject {
     static let accessToken = "accessToken"
     static let refreshToken = "refreshToken"
+    static let dict = "dict"
 }

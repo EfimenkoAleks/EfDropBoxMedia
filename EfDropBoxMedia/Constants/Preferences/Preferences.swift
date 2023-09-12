@@ -29,4 +29,12 @@ class Preferences: PreferencesProtocol {
     func getRefreshToken() -> String? {
         UserDefaults.standard.string(forKey: ConstantUserDefaultsKeys.refreshToken)
     }
+    
+    func savePhotoModel(_ dict: [[String: Any]]) {
+        UserDefaults.standard.set(dict, forKey: ConstantUserDefaultsKeys.dict)
+    }
+    
+    func getPhotoModel() -> [[String: Any]]? {
+        UserDefaults.standard.value(forKey: ConstantUserDefaultsKeys.dict) as? [[String : Any]]
+    }
 }

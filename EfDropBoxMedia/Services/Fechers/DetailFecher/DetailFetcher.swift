@@ -11,28 +11,18 @@ class DetailFetcher: DetailFetcherProtocol {
     
     private let networkService: NetWorkServiceProtocol = NetWorkService()
     
-    func downLoadPhoto(path: String, completion: @escaping (String) -> Void) {
+    func downLoadPhoto(path: String, completion: @escaping (DownLoad) -> Void) {
         
        let bigPath = createBigPathFromPath(path)
         networkService.downLoadPhoto(path: path, pathForSaveBig: bigPath) { result in
-            switch result {
-            case .loaded(let path):
-                completion(path)
-            default:
-                break
-            }
+           completion(result)
         }
     }
     
-    func getPath(path: String, completion: @escaping (String) -> Void) {
+    func downLoadVideo(path: String, completion: @escaping (DownLoad) -> Void) {
         
         networkService.download(path: path) { result in
-            switch result {
-            case .loaded(let path):
-                completion(path)
-            default:
-                break
-            }
+            completion(result)
         }
     }
     
