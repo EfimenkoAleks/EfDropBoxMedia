@@ -10,6 +10,13 @@
 		56F7AEA0F7DDBF7E4DB8886A /* libPods-EfDropBoxMedia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B862935A0B9F571E8E94160 /* libPods-EfDropBoxMedia.a */; };
 		CEC2C1F02AAD09CD004F744D /* ListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC2C1EF2AAD09CD004F744D /* ListCellViewModel.swift */; };
 		CED092E52AAE0E4100A1F63E /* ListHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED092E42AAE0E4100A1F63E /* ListHelper.swift */; };
+		CED092EA2AAE416A00A1F63E /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED092E92AAE416A00A1F63E /* VideoPlayer.swift */; };
+		CED092F12AAE643100A1F63E /* DetailFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED092F02AAE643100A1F63E /* DetailFetcher.swift */; };
+		CED092F32AAE645C00A1F63E /* DetailFetcherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED092F22AAE645C00A1F63E /* DetailFetcherProtocol.swift */; };
+		CEE8DEBD2AAF1859004E0B32 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE8DEBB2AAF1859004E0B32 /* VideoCell.swift */; };
+		CEE8DEBE2AAF1859004E0B32 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE8DEBC2AAF1859004E0B32 /* VideoCell.xib */; };
+		CEE8DEC12AAF186E004E0B32 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE8DEBF2AAF186E004E0B32 /* PhotoCell.swift */; };
+		CEE8DEC22AAF186E004E0B32 /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE8DEC02AAF186E004E0B32 /* PhotoCell.xib */; };
 		CEEDEE302AA5BB6000122317 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE2F2AA5BB6000122317 /* AppDelegate.swift */; };
 		CEEDEE322AA5BB6000122317 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE312AA5BB6000122317 /* SceneDelegate.swift */; };
 		CEEDEE392AA5BB6100122317 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEEDEE382AA5BB6100122317 /* Assets.xcassets */; };
@@ -17,15 +24,13 @@
 		CEEDEE4B2AA5CAB200122317 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE492AA5CAB100122317 /* ListViewController.swift */; };
 		CEEDEE4C2AA5CAB200122317 /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEEDEE4A2AA5CAB100122317 /* ListViewController.xib */; };
 		CEEDEE4E2AA5CB6B00122317 /* ListTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE4D2AA5CB6A00122317 /* ListTableViewManager.swift */; };
-		CEEDEE522AA5CCD700122317 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE502AA5CCD700122317 /* ListCell.swift */; };
-		CEEDEE532AA5CCD700122317 /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEEDEE512AA5CCD700122317 /* ListCell.xib */; };
 		CEEDEE552AA5CE6F00122317 /* ConstantId.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE542AA5CE6F00122317 /* ConstantId.swift */; };
 		CEEDEE592AA5CF5B00122317 /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE582AA5CF5B00122317 /* ReusableCell.swift */; };
 		CEEDEE5C2AA5D06100122317 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE5B2AA5D06100122317 /* ListViewModel.swift */; };
 		CEEDEE5E2AA5D09400122317 /* ListInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE5D2AA5D09400122317 /* ListInterfaces.swift */; };
 		CEEDEE622AA6283D00122317 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE612AA6283D00122317 /* DIContainer.swift */; };
-		CEEDEE652AA6298000122317 /* ListNetWorkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE642AA6298000122317 /* ListNetWorkService.swift */; };
-		CEEDEE692AA629E700122317 /* ListNetWorkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE682AA629E700122317 /* ListNetWorkServiceProtocol.swift */; };
+		CEEDEE652AA6298000122317 /* NetWorkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE642AA6298000122317 /* NetWorkService.swift */; };
+		CEEDEE692AA629E700122317 /* NetWorkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE682AA629E700122317 /* NetWorkServiceProtocol.swift */; };
 		CEEDEE6C2AA62A4C00122317 /* ListFecher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE6B2AA62A4C00122317 /* ListFecher.swift */; };
 		CEEDEE6E2AA62A6200122317 /* ListFecherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE6D2AA62A6200122317 /* ListFecherProtocol.swift */; };
 		CEEDEE702AA7330F00122317 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDEE6F2AA7330F00122317 /* String+Extension.swift */; };
@@ -42,6 +47,13 @@
 		5B862935A0B9F571E8E94160 /* libPods-EfDropBoxMedia.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EfDropBoxMedia.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC2C1EF2AAD09CD004F744D /* ListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCellViewModel.swift; sourceTree = "<group>"; };
 		CED092E42AAE0E4100A1F63E /* ListHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHelper.swift; sourceTree = "<group>"; };
+		CED092E92AAE416A00A1F63E /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
+		CED092F02AAE643100A1F63E /* DetailFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFetcher.swift; sourceTree = "<group>"; };
+		CED092F22AAE645C00A1F63E /* DetailFetcherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFetcherProtocol.swift; sourceTree = "<group>"; };
+		CEE8DEBB2AAF1859004E0B32 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		CEE8DEBC2AAF1859004E0B32 /* VideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
+		CEE8DEBF2AAF186E004E0B32 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		CEE8DEC02AAF186E004E0B32 /* PhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
 		CEEDEE2C2AA5BB5F00122317 /* EfDropBoxMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EfDropBoxMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEDEE2F2AA5BB6000122317 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEEDEE312AA5BB6000122317 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,15 +63,13 @@
 		CEEDEE492AA5CAB100122317 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		CEEDEE4A2AA5CAB100122317 /* ListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
 		CEEDEE4D2AA5CB6A00122317 /* ListTableViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewManager.swift; sourceTree = "<group>"; };
-		CEEDEE502AA5CCD700122317 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
-		CEEDEE512AA5CCD700122317 /* ListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCell.xib; sourceTree = "<group>"; };
 		CEEDEE542AA5CE6F00122317 /* ConstantId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantId.swift; sourceTree = "<group>"; };
 		CEEDEE582AA5CF5B00122317 /* ReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCell.swift; sourceTree = "<group>"; };
 		CEEDEE5B2AA5D06100122317 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		CEEDEE5D2AA5D09400122317 /* ListInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInterfaces.swift; sourceTree = "<group>"; };
 		CEEDEE612AA6283D00122317 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
-		CEEDEE642AA6298000122317 /* ListNetWorkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNetWorkService.swift; sourceTree = "<group>"; };
-		CEEDEE682AA629E700122317 /* ListNetWorkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNetWorkServiceProtocol.swift; sourceTree = "<group>"; };
+		CEEDEE642AA6298000122317 /* NetWorkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkService.swift; sourceTree = "<group>"; };
+		CEEDEE682AA629E700122317 /* NetWorkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkServiceProtocol.swift; sourceTree = "<group>"; };
 		CEEDEE6B2AA62A4C00122317 /* ListFecher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFecher.swift; sourceTree = "<group>"; };
 		CEEDEE6D2AA62A6200122317 /* ListFecherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFecherProtocol.swift; sourceTree = "<group>"; };
 		CEEDEE6F2AA7330F00122317 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -97,8 +107,10 @@
 		CEC2C1ED2AAD0976004F744D /* CellView */ = {
 			isa = PBXGroup;
 			children = (
-				CEEDEE502AA5CCD700122317 /* ListCell.swift */,
-				CEEDEE512AA5CCD700122317 /* ListCell.xib */,
+				CEE8DEBB2AAF1859004E0B32 /* VideoCell.swift */,
+				CEE8DEBC2AAF1859004E0B32 /* VideoCell.xib */,
+				CEE8DEBF2AAF186E004E0B32 /* PhotoCell.swift */,
+				CEE8DEC02AAF186E004E0B32 /* PhotoCell.xib */,
 			);
 			path = CellView;
 			sourceTree = "<group>";
@@ -114,8 +126,36 @@
 		CED092E62AAE33F900A1F63E /* CastomElement */ = {
 			isa = PBXGroup;
 			children = (
+				CED092E92AAE416A00A1F63E /* VideoPlayer.swift */,
 			);
 			path = CastomElement;
+			sourceTree = "<group>";
+		};
+		CED092EB2AAE629200A1F63E /* Fechers */ = {
+			isa = PBXGroup;
+			children = (
+				CED092ED2AAE62E800A1F63E /* DetailFecher */,
+				CEEDEE6A2AA62A0D00122317 /* ListFecher */,
+			);
+			path = Fechers;
+			sourceTree = "<group>";
+		};
+		CED092EC2AAE62AE00A1F63E /* NeworkServices */ = {
+			isa = PBXGroup;
+			children = (
+				CEEDEE642AA6298000122317 /* NetWorkService.swift */,
+				CEEDEE682AA629E700122317 /* NetWorkServiceProtocol.swift */,
+			);
+			path = NeworkServices;
+			sourceTree = "<group>";
+		};
+		CED092ED2AAE62E800A1F63E /* DetailFecher */ = {
+			isa = PBXGroup;
+			children = (
+				CED092F02AAE643100A1F63E /* DetailFetcher.swift */,
+				CED092F22AAE645C00A1F63E /* DetailFetcherProtocol.swift */,
+			);
+			path = DetailFecher;
 			sourceTree = "<group>";
 		};
 		CEEDEE232AA5BB5F00122317 = {
@@ -226,20 +266,11 @@
 		CEEDEE602AA6280E00122317 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				CEEDEE6A2AA62A0D00122317 /* ListFecher */,
-				CEEDEE632AA628FF00122317 /* ListNetWorkService */,
+				CED092EC2AAE62AE00A1F63E /* NeworkServices */,
+				CED092EB2AAE629200A1F63E /* Fechers */,
 				CEEDEE612AA6283D00122317 /* DIContainer.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		CEEDEE632AA628FF00122317 /* ListNetWorkService */ = {
-			isa = PBXGroup;
-			children = (
-				CEEDEE642AA6298000122317 /* ListNetWorkService.swift */,
-				CEEDEE682AA629E700122317 /* ListNetWorkServiceProtocol.swift */,
-			);
-			path = ListNetWorkService;
 			sourceTree = "<group>";
 		};
 		CEEDEE6A2AA62A0D00122317 /* ListFecher */ = {
@@ -330,9 +361,10 @@
 			files = (
 				CEEDEE7A2AA7667100122317 /* LoginViewController.xib in Resources */,
 				CEEDEE3C2AA5BB6100122317 /* LaunchScreen.storyboard in Resources */,
-				CEEDEE532AA5CCD700122317 /* ListCell.xib in Resources */,
+				CEE8DEBE2AAF1859004E0B32 /* VideoCell.xib in Resources */,
 				CEEDEE392AA5BB6100122317 /* Assets.xcassets in Resources */,
 				CEEDEE4C2AA5CAB200122317 /* ListViewController.xib in Resources */,
+				CEE8DEC22AAF186E004E0B32 /* PhotoCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,28 +400,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEEDEE652AA6298000122317 /* ListNetWorkService.swift in Sources */,
+				CEEDEE652AA6298000122317 /* NetWorkService.swift in Sources */,
+				CEE8DEBD2AAF1859004E0B32 /* VideoCell.swift in Sources */,
 				CEEDEE552AA5CE6F00122317 /* ConstantId.swift in Sources */,
 				CEEDEE302AA5BB6000122317 /* AppDelegate.swift in Sources */,
 				CEEDEE622AA6283D00122317 /* DIContainer.swift in Sources */,
 				CEEDEE6E2AA62A6200122317 /* ListFecherProtocol.swift in Sources */,
-				CEEDEE692AA629E700122317 /* ListNetWorkServiceProtocol.swift in Sources */,
+				CEEDEE692AA629E700122317 /* NetWorkServiceProtocol.swift in Sources */,
 				CEEDEE322AA5BB6000122317 /* SceneDelegate.swift in Sources */,
+				CED092F12AAE643100A1F63E /* DetailFetcher.swift in Sources */,
 				CEEDEE832AA77EFB00122317 /* ConstantUserDefaultsKeys.swift in Sources */,
+				CED092EA2AAE416A00A1F63E /* VideoPlayer.swift in Sources */,
 				CEEDEE5E2AA5D09400122317 /* ListInterfaces.swift in Sources */,
 				CEEDEE4B2AA5CAB200122317 /* ListViewController.swift in Sources */,
 				CED092E52AAE0E4100A1F63E /* ListHelper.swift in Sources */,
 				CEEDEE7C2AA773F900122317 /* ListModel.swift in Sources */,
+				CED092F32AAE645C00A1F63E /* DetailFetcherProtocol.swift in Sources */,
 				CEEDEE7F2AA77DB200122317 /* Preferences.swift in Sources */,
 				CEEDEE722AA733F900122317 /* URL+Extension.swift in Sources */,
 				CEEDEE812AA77DD500122317 /* PreferencesProtocol.swift in Sources */,
 				CEC2C1F02AAD09CD004F744D /* ListCellViewModel.swift in Sources */,
-				CEEDEE522AA5CCD700122317 /* ListCell.swift in Sources */,
 				CEEDEE592AA5CF5B00122317 /* ReusableCell.swift in Sources */,
 				CEEDEE5C2AA5D06100122317 /* ListViewModel.swift in Sources */,
 				CEEDEE792AA7667100122317 /* LoginViewController.swift in Sources */,
 				CEEDEE6C2AA62A4C00122317 /* ListFecher.swift in Sources */,
 				CEEDEE702AA7330F00122317 /* String+Extension.swift in Sources */,
+				CEE8DEC12AAF186E004E0B32 /* PhotoCell.swift in Sources */,
 				CEEDEE4E2AA5CB6B00122317 /* ListTableViewManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

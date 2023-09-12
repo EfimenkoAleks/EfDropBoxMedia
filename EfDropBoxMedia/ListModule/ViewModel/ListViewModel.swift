@@ -11,9 +11,9 @@ class ListViewModel {
     
     var fetchList: (([List]) -> Void)?
     private var dataSource: [List] = []
-    private var _fetcher: ListFecherProtocol
+    private var _fetcher: ListFetcherProtocol
     
-    init(fetcher: ListFecherProtocol = DIContainer.default.listService) {
+    init(fetcher: ListFetcherProtocol = DIContainer.default.listService) {
         self._fetcher = fetcher
         
         fechData()

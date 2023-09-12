@@ -9,6 +9,7 @@ import Foundation
 
 class ConstantId: NSObject {
     
-    static let listCell = "idListCell"
+    static let videoCell = "idVideoCell"
+    static let photoCell = "idPhotoCell"
 }
 

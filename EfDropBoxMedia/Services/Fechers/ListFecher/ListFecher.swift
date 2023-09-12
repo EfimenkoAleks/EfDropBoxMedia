@@ -7,18 +7,11 @@
 
 import Foundation
 
-enum DownLoad {
-    case startDownloading
-    case loaded(String)
-    case error
-}
-
-class ListFecher: ListFecherProtocol {
+class ListFetcher: ListFetcherProtocol {
     
     private let folder: String = ""
     private var isFirstRequest: Bool = true
-    private let networkService: ListNetWorkServiceProtocol = ListNetWorkService()
-    private let preferences: PreferencesProtocol = Preferences()
+    private let networkService: NetWorkServiceProtocol = NetWorkService()
     private var cursor: String?
     
     func getList(completion: @escaping ([List]) -> Void) {
@@ -45,15 +38,15 @@ class ListFecher: ListFecherProtocol {
         }
     }
     
-    func downLoad(path: String, isPreview: Bool, completion: @escaping (DownLoad) -> Void) {
-        if isPreview {
-            networkService.downLoadPreviewPhoto(path: (folder + path)) { result in
-                completion(result)
-            }
-        } else {
-            networkService.downLoadPhoto(path: (folder + path)) { result in
-                completion(result)
-            }
+    func downLoad(path: String, completion: @escaping (DownLoad) -> Void) {
+        networkService.downLoadPreviewPhoto(path: (folder + path)) { result in
+            completion(result)
+        }
+    }
+    
+    func downLoadVideo(path: String, completion: @escaping (DownLoad) -> Void) {
+        networkService.download(path: path) { result in
+            completion(result)
         }
     }
 }

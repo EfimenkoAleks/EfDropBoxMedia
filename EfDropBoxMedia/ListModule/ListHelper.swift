@@ -11,7 +11,7 @@ class ListHelper {
     
     init() {}
     
-    func aspectRatio(_ image: UIImage, myViewHeight: CGFloat) -> CGFloat {
+    func newWidthImage(_ image: UIImage, myViewHeight: CGFloat) -> CGFloat {
         
         let myImageWidth = image.size.width
         let myImageHeight = image.size.height
@@ -37,5 +37,28 @@ class ListHelper {
             editStr.removeSubrange(dotRange.lowerBound..<editStr.endIndex)
         }
         return editStr
+    }
+    
+    func getUrlForVideo(path: String) -> URL? {
+        let fileManager = FileManager.default
+        let directoryURL = fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first
+        let destURL = directoryURL?.appendingPathComponent(path)
+        return destURL
+    }
+    
+    func defineContent(str: String?) -> ListType {
+        guard let str = str else { return .notSupported }
+        let ending = trimToPoint(str: str)
+        if ending == "jpeg" { return .photo }
+        else if ["MOV", "mov", "mp4"].contains(ending) { return .video }
+        else { return .notSupported }
+    }
+    
+    private func trimToPoint(str: String) -> String {
+        if let range = str.range(of: ".") {
+            return  String(str[range.upperBound...])
+        } else {
+            return ""
+        }
     }
 }

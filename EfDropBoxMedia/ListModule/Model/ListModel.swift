@@ -16,3 +16,16 @@ struct List {
     var pathLower: String?
     var name: String?
 }
+
+enum DownLoad {
+    case startDownloading
+    case loaded(String)
+    case notSupported
+    case error
+}
+
+enum ListType {
+    case video
+    case photo
+    case notSupported
+}

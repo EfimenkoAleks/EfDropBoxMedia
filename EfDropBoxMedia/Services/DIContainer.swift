@@ -11,6 +11,6 @@ struct DIContainer {
 
     static var `default` = Self()
     
-    lazy var listService: ListFecherProtocol = ListFecher()
+    lazy var listService: ListFetcherProtocol = ListFetcher()
+    lazy var detailService: DetailFetcherProtocol = DetailFetcher()
 }
-

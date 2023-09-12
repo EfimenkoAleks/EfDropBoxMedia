@@ -12,8 +12,8 @@ enum ListEvent {
 }
 
 class ListTableViewManager: NSObject {
-    
-    private var isLoadingList: Bool = false
+
+    private let helper: ListHelper = ListHelper()
     
     var tableView: UITableView
     var data: [List]
@@ -44,7 +44,8 @@ class ListTableViewManager: NSObject {
 extension ListTableViewManager {
     
     func registerTableViewCells() {
-        tableView.register(ListCell.nib, forCellReuseIdentifier: ConstantId.listCell)
+        tableView.register(VideoCell.nib, forCellReuseIdentifier: ConstantId.videoCell)
+        tableView.register(PhotoCell.nib, forCellReuseIdentifier: ConstantId.photoCell)
     }
 }
 
@@ -55,13 +56,28 @@ extension ListTableViewManager: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ConstantId.listCell, for: indexPath)
-                as? ListCell else { return UITableViewCell() }
+        let type = helper.defineContent(str: data[indexPath.row].name)
         
-        let list = data[indexPath.row]
-        
-        cell.configure(model: list)
-        return cell
+        switch type {
+        case .photo:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ConstantId.photoCell, for: indexPath)
+                    as? PhotoCell else { return UITableViewCell() }
+            
+            let list = data[indexPath.row]
+            
+            cell.configure(model: list)
+            return cell
+        case .video:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ConstantId.videoCell, for: indexPath)
+                    as? VideoCell else { return UITableViewCell() }
+            
+            let list = data[indexPath.row]
+            
+            cell.configure(model: list)
+            return cell
+        case .notSupported:
+            return UITableViewCell()
+        }
     }
 }
 
