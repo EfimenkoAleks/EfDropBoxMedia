@@ -49,7 +49,7 @@ class ListHelper {
     func defineContent(str: String?) -> ListType {
         guard let str = str else { return .notSupported }
         let ending = trimToPoint(str: str)
-        if ending == "jpeg" { return .photo }
+        if ["jpeg", "png", "webp"].contains(ending) { return .photo }
         else if ["MOV", "mov", "mp4"].contains(ending) { return .video }
         else { return .notSupported }
     }

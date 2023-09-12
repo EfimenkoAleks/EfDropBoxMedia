@@ -55,6 +55,8 @@ class VideoCell: UITableViewCell, ReusableCell {
         ])
 
         videoView.player?.play()
+        videoView.player?.isMuted = true
+        
         nameLabel.text = viewModel?.removeEnding(name: name)
     }
     

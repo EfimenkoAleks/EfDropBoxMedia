@@ -30,7 +30,11 @@ private extension ListViewController {
     func bindUI() {
         viewModel.fetchList = { [unowned self] newList in
             DispatchQueue.main.async {
-                self.setupTable(newList)
+                if self.tableViewManager == nil {
+                    self.setupTable(newList)
+                } else {
+                    self.reloadTableWithNewData(newList)
+                }
             }
         }
     }
@@ -51,7 +55,13 @@ private extension ListViewController {
             case .selectedVideo(let model):
                 let vc = VideoViewController(with: model)
                 self.navigationController?.pushViewController(vc, animated: true)
+            case .loadMore:
+                viewModel.fechData()
             }
         }
+    }
+    
+    func reloadTableWithNewData(_ data: [List]) {
+        tableViewManager?.reloadTable(data: data)
     }
 }

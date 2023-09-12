@@ -32,13 +32,13 @@ class NetWorkService: NetWorkServiceProtocol {
     
     func getList(path: String, completion: @escaping (Result<ListObject, Error>) -> Void) {
         
-        client?.files.listFolder(path: path).response { response, error in
+        client?.files.listFolder(path: path, limit: 8).response { response, error in
             if let result = response {
                 
                 let arrayPathLower: [List] = result.entries.compactMap { object -> List in
                     List(pathLower: object.pathLower, name: object.name)
                 }
-                let object = ListObject(cursor: result.cursor, listModels: arrayPathLower)
+                let object = ListObject(hasMore: result.hasMore, cursor: result.cursor, listModels: arrayPathLower)
                 completion(.success(object))
             } else if let error = error {
                 completion(.failure(error as! Error))
@@ -52,22 +52,11 @@ class NetWorkService: NetWorkServiceProtocol {
                 let arrayPathLower: [List] = result.entries.compactMap { object -> List in
                     List(pathLower: object.pathLower, name: object.name)
                 }
-                let object = ListObject(cursor: result.cursor, listModels: arrayPathLower)
+                let object = ListObject(hasMore: result.hasMore, cursor: result.cursor, listModels: arrayPathLower)
                 completion(.success(object))
             } else if let error = error {
                 completion(.failure(error as! Error))
             }
-        }
-    }
-    
-    private func containsVideoOfPath(_ path: String) -> Data? {
-        
-        guard let fileURL = getFileUrlFromPath(path) else { return nil }
-        do {
-            let imageData = try Data(contentsOf: fileURL as URL)
-            return imageData
-        } catch {
-            return nil
         }
     }
     
@@ -161,6 +150,17 @@ class NetWorkService: NetWorkServiceProtocol {
                     return
                 }
             }
+    }
+    
+    private func containsVideoOfPath(_ path: String) -> Data? {
+        
+        guard let fileURL = getFileUrlFromPath(path) else { return nil }
+        do {
+            let imageData = try Data(contentsOf: fileURL as URL)
+            return imageData
+        } catch {
+            return nil
+        }
     }
     
     private func savePhotoModel(_ model: PhotoModel) {

@@ -10,11 +10,13 @@ import UIKit
 enum ListEvent {
     case selectedVideo(String?)
     case selectedPhoto(String?)
+    case loadMore
 }
 
 class ListTableViewManager: NSObject {
 
     private let helper: ListHelper = ListHelper()
+    private var isLoadingList: Bool = false
     
     var tableView: UITableView
     var data: [List]
@@ -33,8 +35,13 @@ class ListTableViewManager: NSObject {
     }
     
     func reloadTable(data: [List]) {
+        self.isLoadingList = false
         self.data = data
         reload()
+    }
+    
+    private func loadMoreItemsForList() {
+        eventHandler?(.loadMore)
     }
     
     func reload() {
@@ -93,6 +100,16 @@ extension ListTableViewManager: UITableViewDelegate {
             eventHandler?(.selectedPhoto(model.pathLower))
         default:
             break
+        }
+    }
+}
+
+extension ListTableViewManager: UIScrollViewDelegate {
+
+func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (((scrollView.contentOffset.y + scrollView.frame.size.height) > scrollView.contentSize.height ) && !isLoadingList){
+            self.isLoadingList = true
+            self.loadMoreItemsForList()
         }
     }
 }

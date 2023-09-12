@@ -8,6 +8,7 @@
 import Foundation
 
 struct ListObject {
+    var hasMore: Bool
     var cursor: String?
     var listModels: [List]
 }

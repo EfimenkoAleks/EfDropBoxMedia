@@ -10,22 +10,23 @@ import Foundation
 class ListFetcher: ListFetcherProtocol {
     
     private let folder: String = ""
-    private var isFirstRequest: Bool = true
     private let networkService: NetWorkServiceProtocol = NetWorkService()
     private var cursor: String?
+    private var hasMore: Bool = true
     
     func getList(completion: @escaping ([List]) -> Void) {
-        if let cursor = cursor {
+        if let cursor = cursor, hasMore {
             networkService.getListContinue(cursor: cursor) { [weak self] result in
                 switch result {
                 case .success(let object):
                     self?.cursor = object.cursor
+                    self?.hasMore = object.hasMore
                     completion(object.listModels)
                 case .failure(_):
                     completion([])
                 }
             }
-        } else {
+        } else if cursor == nil, hasMore {
             networkService.getList(path: folder) { [weak self] result in
                 switch result {
                 case .success(let object):
@@ -35,7 +36,7 @@ class ListFetcher: ListFetcherProtocol {
                     completion([])
                 }
             }
-        }
+        } else { return }
     }
     
     func downLoad(path: String, completion: @escaping (DownLoad) -> Void) {

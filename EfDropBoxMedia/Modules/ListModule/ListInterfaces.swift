@@ -9,4 +9,5 @@ import Foundation
 
 protocol ListViewModelProtocol {
     var fetchList: (([List]) -> Void)? {get set}
+    func fechData()
 }
