@@ -45,8 +45,11 @@ private extension ListViewController {
         self.tableViewManager = ListTableViewManager(tableView, data: data)
         self.tableViewManager?.eventHandler = { [unowned self] event in
             switch event {
-            case .selected(let model):
+            case .selectedPhoto(let model):
                 let vc = PhotoViewController(with: model)
+                self.navigationController?.pushViewController(vc, animated: true)
+            case .selectedVideo(let model):
+                let vc = VideoViewController(with: model)
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }

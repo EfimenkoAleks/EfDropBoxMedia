@@ -25,10 +25,10 @@ class PhotoViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @IBOutlet weak var contentImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var modifierLabel: UILabel!
-    @IBOutlet weak var sizeLabel: UILabel!
+    @IBOutlet private weak var contentImageView: UIImageView!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var modifierLabel: UILabel!
+    @IBOutlet private weak var sizeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

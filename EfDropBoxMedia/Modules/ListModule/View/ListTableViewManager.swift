@@ -8,7 +8,8 @@
 import UIKit
 
 enum ListEvent {
-    case selected(String?)
+    case selectedVideo(String?)
+    case selectedPhoto(String?)
 }
 
 class ListTableViewManager: NSObject {
@@ -83,6 +84,15 @@ extension ListTableViewManager: UITableViewDataSource {
 
 extension ListTableViewManager: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        eventHandler?(.selected(data[indexPath.row].pathLower))
+        let model = data[indexPath.row]
+        let type = helper.defineContent(str: model.name)
+        switch type {
+        case .video:
+            eventHandler?(.selectedVideo(model.pathLower))
+        case .photo:
+            eventHandler?(.selectedPhoto(model.pathLower))
+        default:
+            break
+        }
     }
 }

@@ -30,8 +30,8 @@ class VideoCell: UITableViewCell, ReusableCell {
         if let path = model.pathLower {
             viewModel?.downLoad(path) { [unowned self] result in
                 switch result {
-                case .loaded(let path):
-                    setVideo(path: path, name: model.name)
+                case .loadedVideo(let model):
+                    setVideo(path: model.pathLower, name: model.name)
                 default:
                     break
                 }
@@ -39,7 +39,7 @@ class VideoCell: UITableViewCell, ReusableCell {
         }
     }
     
-    private func setVideo(path: String, name: String?) {
+    private func setVideo(path: String?, name: String?) {
         
         guard let url = viewModel?.getUrlForVideo(path: path) else { return }
         let videoView = VideoPlayer(frame: containerForContentView.bounds, url: url)

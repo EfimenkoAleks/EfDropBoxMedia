@@ -12,6 +12,7 @@ enum DownLoad {
     case startDownloading
     case loaded(String)
     case loadedPhoto(PhotoModel)
+    case loadedVideo(PhotoModel)
     case notSupported
     case error
 }
@@ -71,21 +72,35 @@ class NetWorkService: NetWorkServiceProtocol {
     }
     
     func download(path: String, completion: @escaping (DownLoad) -> Void) {
-        
         guard let fileURL = getFileUrlFromPath(path) else { return }
         guard containsVideoOfPath(path) == nil else {
-            completion(.loaded(path))
-            return
+            if let savedArreyModels = preferences.getVideoModel() {
+                savedArreyModels.forEach { dict in
+                    if dict["pathLower"] as? String == path {
+                        completion(.loadedVideo(createPhotoModelFromDict(dict)))
+                    }
+                }
+                completion(.error)
+                return
+            } else {
+                completion(.error)
+                return
+            }
         }
         let destination: (URL, HTTPURLResponse) -> URL = { temporaryURL, response in
             return fileURL
         }
         
         client?.files.download(path: path, overwrite: true, destination: destination)
-            .response { response, error in
+            .response { [unowned self] response, error in
                 if let response = response {
                     if let path = response.0.pathLower {
-                        completion(.loaded(path))
+                        let model = PhotoModel(modified: response.0.clientModified,
+                                               name: response.0.name,
+                                               size: Int64(response.0.size),
+                                               pathLower: path)
+                        saveVideoModel(model)
+                        completion(.loadedVideo(model))
                     }
                 } else if error != nil {
                     completion(.error)
@@ -150,13 +165,23 @@ class NetWorkService: NetWorkServiceProtocol {
     
     private func savePhotoModel(_ model: PhotoModel) {
         var savedArreyModels: [[String: Any]] = preferences.getPhotoModel() ?? []
+        savedArreyModels.append(convertModelToDict(model))
+        preferences.savePhotoModel(savedArreyModels)
+    }
+    
+    private func saveVideoModel(_ model: PhotoModel) {
+        var savedArreyModels: [[String: Any]] = preferences.getVideoModel() ?? []
+        savedArreyModels.append(convertModelToDict(model))
+        preferences.saveVideoModel(savedArreyModels)
+    }
+    
+    private func convertModelToDict(_ model: PhotoModel) -> [String: Any] {
         let dict: [String: Any] = ["name": model.name,
                                   "modified": model.modified,
                                   "size": model.size,
                                    "pathLower": model.pathLower ?? ""
         ]
-        savedArreyModels.append(dict)
-        preferences.savePhotoModel(savedArreyModels)
+        return dict
     }
     
     private func createPhotoModelFromDict(_ dict: [String: Any]) -> PhotoModel {

@@ -35,7 +35,7 @@ extension ListCellViewModel: ListCellViewModelProtocol {
         }
     }
     
-    func getUrlForVideo(path: String) -> URL? {
+    func getUrlForVideo(path: String?) -> URL? {
         helper.getUrlForVideo(path: path)
     }
     
@@ -59,7 +59,7 @@ extension ListCellViewModel: ListCellViewModelProtocol {
 protocol ListCellViewModelProtocol {
     var fetch: ((DownLoad) -> Void)? {get set}
     func downLoad(_ path: String, completion: @escaping (DownLoad) -> Void)
-    func getUrlForVideo(path: String) -> URL?
+    func getUrlForVideo(path: String?) -> URL?
     func removeEnding(name: String?) -> String
     func getImageFromPath(_ path: String) -> UIImage?
     func newWidth(image: UIImage, height: CGFloat) -> CGFloat

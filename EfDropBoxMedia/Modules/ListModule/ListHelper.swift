@@ -38,7 +38,8 @@ class ListHelper {
         return editStr
     }
     
-    func getUrlForVideo(path: String) -> URL? {
+    func getUrlForVideo(path: String?) -> URL? {
+        guard let path = path else { return nil }
         let fileManager = FileManager.default
         let directoryURL = fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first
         let destURL = directoryURL?.appendingPathComponent(path)

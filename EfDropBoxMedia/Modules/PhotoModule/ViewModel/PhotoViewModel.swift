@@ -10,7 +10,6 @@ import UIKit
 class PhotoViewModel {
     
     var fetchPhoto: ((PhotoModel?) -> Void)?
-    private var dataSource: [List] = []
     private var _fetcher: DetailFetcherProtocol
     private let helper: PhotoHelper = PhotoHelper()
     

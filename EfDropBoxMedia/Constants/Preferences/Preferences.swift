@@ -31,10 +31,18 @@ class Preferences: PreferencesProtocol {
     }
     
     func savePhotoModel(_ dict: [[String: Any]]) {
-        UserDefaults.standard.set(dict, forKey: ConstantUserDefaultsKeys.dict)
+        UserDefaults.standard.set(dict, forKey: ConstantUserDefaultsKeys.dictPhoto)
     }
     
     func getPhotoModel() -> [[String: Any]]? {
-        UserDefaults.standard.value(forKey: ConstantUserDefaultsKeys.dict) as? [[String : Any]]
+        UserDefaults.standard.value(forKey: ConstantUserDefaultsKeys.dictPhoto) as? [[String : Any]]
+    }
+    
+    func saveVideoModel(_ dict: [[String: Any]]) {
+        UserDefaults.standard.set(dict, forKey: ConstantUserDefaultsKeys.dictVideo)
+    }
+    
+    func getVideoModel() -> [[String: Any]]? {
+        UserDefaults.standard.value(forKey: ConstantUserDefaultsKeys.dictVideo) as? [[String : Any]]
     }
 }
