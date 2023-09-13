@@ -9,12 +9,18 @@ import UIKit
 
 class VideoViewController: UIViewController {
     
+    // MARK: — properties
+    
+    var coordinator: VideoCoordinatorProtocol?
+    
     private var path: String?
     
     lazy var viewModel: VideoViewModelProtocol = {
         let viewModel = VideoViewModel()
         return viewModel
     }()
+    
+    // MARK: — lifecycle
 
         init(with path: String?) {
             self.path = path
@@ -35,7 +41,13 @@ class VideoViewController: UIViewController {
 
         bindUI()
     }
+    
+    deinit {
+        coordinator?.handlerBack?()
+    }
 }
+
+// MARK: — private fanc
 
 private extension VideoViewController {
     

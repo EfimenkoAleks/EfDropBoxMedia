@@ -9,19 +9,26 @@ import UIKit
 import SwiftyDropbox
 
 class LoginViewController: UIViewController {
-
+    
+    // MARK: — properties
+ 
+    @IBOutlet private weak var logiButton: UIButton!
+    
+    // MARK: — lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       
+        logiButton.layer.cornerRadius = 5
+        logiButton.layer.masksToBounds = true
     }
     
-    @IBAction func didTapLoginButton(_ sender: UIButton) {
+    @IBAction private func didTapLoginButton(_ sender: UIButton) {
         myButtonInControllerPressed()
     }
 
-    func myButtonInControllerPressed() {
-        // OAuth 2 code flow with PKCE that grants a short-lived token with scopes, and performs refreshes of the token automatically.
+    private func myButtonInControllerPressed() {
+       
         let scopeRequest = ScopeRequest(scopeType: .user, scopes: ["account_info.read", "file_requests.read", "files.metadata.read", "files.content.read"], includeGrantedScopes: false)
         DropboxClientsManager.authorizeFromControllerV2(
             UIApplication.shared,

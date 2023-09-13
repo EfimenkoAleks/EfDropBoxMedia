@@ -9,33 +9,45 @@ import UIKit
 
 class PhotoViewController: UIViewController {
     
+    // MARK: — properties
+    
+    var coordinator: PhotoCoordinatorProtocol?
+    
     private var path: String?
     
     lazy var viewModel: PhotoViewModelProtocol = {
         let viewModel = PhotoViewModel()
         return viewModel
     }()
-
-        init(with path: String?) {
-            self.path = path
-            super.init(nibName: nil, bundle: nil)
-        }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     @IBOutlet private weak var contentImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var modifierLabel: UILabel!
     @IBOutlet private weak var sizeLabel: UILabel!
     
+    // MARK: — lifecycle
+    
+    init(with path: String?) {
+        self.path = path
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         bindUI()
     }
+    
+    deinit {
+        coordinator?.handlerBack?()
+    }
 }
+
+// MARK: — private fanc
 
 private extension PhotoViewController {
     

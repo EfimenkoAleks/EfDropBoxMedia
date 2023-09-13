@@ -8,6 +8,10 @@
 import UIKit
 
 class ListViewController: UIViewController {
+    
+    // MARK: — properties
+    
+    var coordinator: ListCoordinatorProtocol?
 
     @IBOutlet private weak var tableView: UITableView!
     
@@ -17,6 +21,7 @@ class ListViewController: UIViewController {
     }()
     private var tableViewManager: ListTableViewManager?
     
+    // MARK: — lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,11 +55,9 @@ private extension ListViewController {
         self.tableViewManager?.eventHandler = { [unowned self] event in
             switch event {
             case .selectedPhoto(let model):
-                let vc = PhotoViewController(with: model)
-                self.navigationController?.pushViewController(vc, animated: true)
+                coordinator?.eventOccurred(with: .photo(model))
             case .selectedVideo(let model):
-                let vc = VideoViewController(with: model)
-                self.navigationController?.pushViewController(vc, animated: true)
+                coordinator?.eventOccurred(with: .video(model))
             case .loadMore:
                 viewModel.fechData()
             }
